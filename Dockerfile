@@ -48,6 +48,8 @@ SHELL ["nrfutil","toolchain-manager","launch","/bin/bash","--","-c"]
 RUN west init -m https://github.com/nrfconnect/sdk-nrf --mr ${sdk_nrf_branch} . \
  && west update --narrow -o=--depth=1
 
+ADD ./zephyr_support_files /workdir/zephyr/drivers/ethernet
+
 # Launch into build environment with the passed arguments
 # Currently this is not supported in GitHub Actions
 # See https://github.com/actions/runner/issues/1964
